@@ -9,15 +9,43 @@ Lookator helps home buyers evaluate the surrounding area of a property before ma
 - Saved location analyses
 - Score breakdown, strengths, weaknesses, and comparison view
 
-## Run
+## Run Locally
+
+Backend:
 
 ```bash
-docker compose up --build
+cd backend
+mvn spring-boot:run
 ```
 
-Open the frontend at [http://localhost:5173](http://localhost:5173).
+Frontend:
 
-The API is available at [http://localhost:8080/api/v1](http://localhost:8080/api/v1), with Swagger UI at [http://localhost:8080/swagger-ui/index.html](http://localhost:8080/swagger-ui/index.html).
+```bash
+cd frontend
+npm install
+npm run dev
+```
+
+The frontend runs at [http://localhost:5173](http://localhost:5173).
+
+The API runs at [http://localhost:8080/api/v1](http://localhost:8080/api/v1), with Swagger UI at [http://localhost:8080/swagger-ui/index.html](http://localhost:8080/swagger-ui/index.html).
+
+## Environment Variables
+
+For Railway, do not commit a real `.env` file. Add these variables in the backend service Variables panel:
+
+- `SPRING_DATASOURCE_URL=jdbc:postgresql://HOST:PORT/DATABASE`
+- `SPRING_DATASOURCE_USERNAME=USER`
+- `SPRING_DATASOURCE_PASSWORD=PASSWORD`
+- `LOOKATOR_JWT_SECRET=a-long-random-secret`
+
+The same variables are documented in `backend/.env.example`.
+
+Railway Postgres should have the PostGIS extension enabled before location queries rely on geospatial SQL:
+
+```sql
+CREATE EXTENSION IF NOT EXISTS postgis;
+```
 
 ## Current MVP Behavior
 
