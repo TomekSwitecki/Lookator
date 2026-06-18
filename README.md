@@ -38,8 +38,13 @@ For Railway, do not commit a real `.env` file. Add these variables in the backen
 - `SPRING_DATASOURCE_USERNAME=USER`
 - `SPRING_DATASOURCE_PASSWORD=PASSWORD`
 - `LOOKATOR_JWT_SECRET=a-long-random-secret`
+- `LOOKATOR_ALLOWED_ORIGINS=https://lookator.onrender.com`
 
 The same variables are documented in `backend/.env.example`.
+
+For Render, add this variable in the frontend service:
+
+- `VITE_API_BASE=https://lookator-production.up.railway.app`
 
 Railway Postgres should have the PostGIS extension enabled before location queries rely on geospatial SQL:
 

@@ -14,7 +14,7 @@ spring:
         format_sql: true
 
 server:
-  port: ${SERVER_PORT:8080}
+  port: ${PORT:${SERVER_PORT:8080}}
 
 lookator:
   jwt:
@@ -28,3 +28,5 @@ lookator:
     nuisances: 0.25
   osm:
     overpass-url: ${LOOKATOR_OVERPASS_URL:https://overpass-api.de/api/interpreter}
+  cors:
+    allowed-origins: ${LOOKATOR_ALLOWED_ORIGINS:http://localhost:5173,https://lookator.onrender.com}
