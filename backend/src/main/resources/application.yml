@@ -1,0 +1,30 @@
+spring:
+  application:
+    name: lookator
+  datasource:
+    url: ${SPRING_DATASOURCE_URL:jdbc:postgresql://localhost:5432/lookator}
+    username: ${SPRING_DATASOURCE_USERNAME:lookator}
+    password: ${SPRING_DATASOURCE_PASSWORD:lookator}
+  jpa:
+    hibernate:
+      ddl-auto: update
+    open-in-view: false
+    properties:
+      hibernate:
+        format_sql: true
+
+server:
+  port: ${SERVER_PORT:8080}
+
+lookator:
+  jwt:
+    issuer: lookator
+    secret: ${LOOKATOR_JWT_SECRET:dev-only-change-this-secret-to-a-long-random-value}
+    expires-minutes: 720
+  scoring:
+    transport: 0.25
+    amenities: 0.25
+    green: 0.25
+    nuisances: 0.25
+  osm:
+    overpass-url: ${LOOKATOR_OVERPASS_URL:https://overpass-api.de/api/interpreter}

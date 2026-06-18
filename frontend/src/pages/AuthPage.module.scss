@@ -1,0 +1,110 @@
+.page {
+  min-height: 100vh;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 420px;
+  background: #f4f6f3;
+}
+
+.visual {
+  position: relative;
+  overflow: hidden;
+  background: #dfe8e3;
+}
+
+.map {
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(90deg, rgba(42, 74, 67, 0.08) 1px, transparent 1px),
+    linear-gradient(rgba(42, 74, 67, 0.08) 1px, transparent 1px),
+    linear-gradient(35deg, transparent 44%, rgba(63, 118, 102, 0.34) 45%, rgba(63, 118, 102, 0.34) 49%, transparent 50%),
+    linear-gradient(125deg, transparent 54%, rgba(185, 93, 66, 0.28) 55%, rgba(185, 93, 66, 0.28) 58%, transparent 59%),
+    #dfe8e3;
+  background-size: 54px 54px, 54px 54px, 100% 100%, 100% 100%, auto;
+}
+
+.pinA,
+.pinB,
+.pinC {
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: #c34d36;
+  box-shadow: 0 0 0 10px rgba(195, 77, 54, 0.16);
+}
+
+.pinA { left: 32%; top: 36%; }
+.pinB { left: 58%; top: 52%; background: #2d786b; box-shadow: 0 0 0 10px rgba(45, 120, 107, 0.17); }
+.pinC { left: 72%; top: 28%; background: #d5a536; box-shadow: 0 0 0 10px rgba(213, 165, 54, 0.17); }
+
+.panel {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 1.4rem;
+  padding: 2.2rem;
+  background: #ffffff;
+  border-left: 1px solid #d8dfdc;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  font-size: 1.1rem;
+  font-weight: 800;
+  color: #214d45;
+}
+
+h1 {
+  margin: 0;
+  max-width: 10ch;
+  font-size: 2.25rem;
+  line-height: 1.05;
+}
+
+.form {
+  display: grid;
+  gap: 1rem;
+}
+
+.form button,
+.switcher {
+  display: inline-flex;
+  min-height: 44px;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  border-radius: 6px;
+  background: #214d45;
+  color: #fff;
+  font-weight: 750;
+}
+
+.switcher {
+  background: transparent;
+  color: #214d45;
+  border: 1px solid #cbd7d2;
+}
+
+.error {
+  margin: 0;
+  color: #b13222;
+  font-weight: 650;
+}
+
+@media (max-width: 820px) {
+  .page {
+    grid-template-columns: 1fr;
+  }
+
+  .visual {
+    min-height: 34vh;
+  }
+
+  .panel {
+    border-left: 0;
+    border-top: 1px solid #d8dfdc;
+  }
+}
